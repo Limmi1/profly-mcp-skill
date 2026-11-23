@@ -4,6 +4,31 @@ Prepare a lesson in Claude and save the material in a particular student's Profl
 
 ![Illustrated Profly teaching toolkit](assets/teaching-toolkit.webp)
 
+## Connect Profly to Claude
+
+**Connector URL** · `https://app.joinprofly.com/api/mcp`
+
+1. In Claude on the web or desktop, open **Settings → Connectors**, choose **Add custom connector**, name it **Profly**, and paste the URL above. On a managed workspace, ask the workspace owner to add the connector if that option is missing.
+2. Choose **Connect**, sign in on Profly and review the access request. Return to Claude and enable Profly for the conversation if prompted. You can do this in regular Claude without downloading this repository.
+3. Try **“Use Profly to show my time zone, my student spaces and my next lesson.”** Check the time zone and student names. An empty list is normal for a new tutor.
+4. **New to teaching on Profly?** If Claude offers tutor signup, ask it to create your tutor profile. If the tool is missing, open [Profly](https://app.joinprofly.com/sign-in), complete tutor setup there and return to Claude. If your profile is awaiting approval, complete the remaining steps after approval and reconnect if your tutor tools have yet to appear.
+
+**Using Claude Code?** Run the command below, open `/mcp` and authenticate with Profly. The optional skill installation is under **Prepare a lesson**.
+
+```sh
+claude mcp add --transport http profly https://app.joinprofly.com/api/mcp
+```
+
+### Set up your first teaching week
+
+Copy this prompt and replace the examples with your own details:
+
+> Help me set up Profly. I teach Italian in the Europe/London time zone. Check my existing students, teaching hours and diary first. I teach Tuesdays from 17:00 to 20:00. Maya takes a 50-minute lesson at 18:00 each Tuesday starting [date]. Show me what needs adding and confirm the dates and times with me before saving. Ask me separately before emailing Maya an invitation.
+
+After setup, ask **“Show me Maya’s next lesson and draft a ten-minute warm-up for her level.”** If you want to keep it, ask Claude to save it to her space. Open the returned review link and choose when to share it. Set your prices, payment details and booking rules in Profly itself.
+
+**If something goes wrong:** An authorization error when you open the connector URL in a browser is expected. Start from Claude’s **Connect** button. If Claude answers from memory, ask it to use Profly and check the connector is enabled. If a save times out, ask Claude to look for the draft before trying again.
+
 ## What is Profly?
 
 Profly is a teaching workspace for independent tutors who bring their own students. A tutor can share a booking page, set lesson prices, offer prepaid lesson blocks and teach in a browser classroom with video and a shared whiteboard. Each student has a space for their lessons, messages and materials.
